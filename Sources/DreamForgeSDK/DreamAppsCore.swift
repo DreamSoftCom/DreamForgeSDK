@@ -89,14 +89,16 @@ extension DreamForgeSDK: AppsFlyerLibDelegate {
         return line
     }
     
-    public func dreamAskNotifications(_ app: UIApplication) {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
+    public func dreamAskNotifications(app: UIApplication) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, err in
             if granted {
                 DispatchQueue.main.async {
                     app.registerForRemoteNotifications()
                 }
+                print("dfdafhmcvnx2")
+                
             } else {
-                print("dreamAskNotifications -> user denied perms")
+                print("user denied notification perms.")
             }
         }
         

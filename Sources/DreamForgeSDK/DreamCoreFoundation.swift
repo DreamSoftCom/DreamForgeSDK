@@ -81,11 +81,12 @@ public class DreamForgeSDK: NSObject {
         paramName    = "privacy"
         dreamWindow  = window
         
+        dreamAskNotifications(app: application)
+        
         dreamSetupAF(appID: "6742742910", devKey: "UXhVJFRUdnsPF6oYwH5BAH")
         var checkVal = Int.random(in: 10...99)
         checkVal    += 5
         print("initialize -> checkVal sum = \(checkVal)")
-        dreamAskNotifications(application)
         
         completion(.success("Initialization completed successfully"))
     }
